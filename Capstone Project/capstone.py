@@ -63,7 +63,7 @@ def load_and_prepare(path):
         df['INCIDENT_RESPONSE_SECONDS_QY'], errors='coerce'
     ) / 60
 
-    # Remove impossible response times
+    # Remove outlier response times
     df = df[(df['RESPONSE_TIME_MIN'] > 0) & (df['RESPONSE_TIME_MIN'] <= 120)]
 
     print(f"Loaded {len(df):,} rows x {df.shape[1]} columns")
